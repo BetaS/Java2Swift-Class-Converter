@@ -22,9 +22,9 @@
 
 <p>This is a simple converter for Java Class to Swift2.x Class using regex</p>
       <script language="javascript" src="./converter.js"></script>
-      <table border='0'>
-      	<tr><td>
-		<textarea id="from" rows="60" cols="30">
+		<center><button onclick="convert();">Convert</button></center><br/>
+      <div style="width: 50%; float:left">
+		<textarea id="from" rows="30" style="width: 100%"  wrap='off'>
 package com.example;
 
 import test;
@@ -48,12 +48,12 @@ class Tester {
 	}
 	private void rtn() {
 	}
-}</textarea></td><td>
-		<textarea id="to" rows="60" cols="30"></textarea></td>
-		</tr>
-		<tr><td colspan="2">
-		<center><button onclick="convert();">Convert</button></center></td></tr></table>
-		
+}</textarea>
+</div>
+<div style="width: 50%; float:right" wrap='off'>
+		<textarea id="to" rows="30" style="width: 100%"></textarea></td>
+</div>
+		<center><button onclick="convert();">Convert</button></center>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/BetaS/java2swift_object_converter">Java2swift object converter</a> is maintained by <a href="https://github.com/BetaS">BetaS</a>.</span>
