@@ -1,0 +1,34 @@
+<html>
+	<body>
+		<script language="javascript" src="./converter.js"></script>
+		<textarea id="from" rows="30" cols="60">
+package com.example;
+
+import test;
+
+class Tester {
+	private int abc = 123;
+	private String bcd;
+	
+	public Tester(int abc, String bcd) {
+		this.abc = abc;
+		this.bcd = null;
+	}
+	Tester() {
+	}
+	
+	public int getABC() {
+		return abc;
+	}
+	public String getBCD(int a) {
+		return bcd;
+	}
+	private void rtn() {
+	}
+}</textarea>
+		<textarea id="to" rows="30" cols="60"></textarea>
+		<br/>
+		
+		<button onclick="convert();">Convert</button>
+	</body>
+</html>
