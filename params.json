@@ -1,0 +1,6 @@
+{
+  "name": "Java2swift object converter",
+  "tagline": "Converter for Java Class to Swift2.0 Class",
+  "body": "# Java -> Swift2 Object Converter\r\nThis is a simple converter for Java Class to Swift2.x Class using regex\r\n\r\n## Convert this -> self, null -> nil\r\n## Function & Parameter Convert\r\n[Origin]\r\n```java\r\npublic int func1() {\r\n  blahblahblah\r\n}\r\n```\r\n[Convert]\r\n```swift\r\nfunc func1() -> Int {\r\n  blahblahblah\r\n}\r\n```\r\n## Constructor Convert\r\n[Origin]\r\n```java\r\nclass Test {\r\n  public Test(int foo) {\r\n    blahblahblah\r\n  }\r\n}\r\n```\r\n[Convert]\r\n```swift\r\nclass Test {\r\n  init(foo: Int) {\r\n    blahblahblah\r\n  }\r\n}\r\n```\r\n## Variable Decleration Convert\r\n[Origin]\r\n```java\r\nclass Test {\r\n  private int foo = 0;\r\n  private String bar;\r\n}\r\n```\r\n[Convert]\r\n```swift\r\nclass Test {\r\n  var foo: Int = 0;\r\n  var bar: String = \"\"; // Auto generated default value as same as Java\r\n}\r\n```\r\n\r\n# ToDo\r\n* Support convert options\r\n  * convert 'private' or 'protected' to 'internal'\r\n  * spacing after ':' character\r\n  * external parameter name to '_'\r\n  * remove ';'\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
