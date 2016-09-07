@@ -1,6 +1,8 @@
 # Java -> Swift2 Object Converter
 This is a simple converter for Java Class to Swift2.x Class using regex
 
+Online converter available : http://betas.github.io/java2swift_object_converter/
+
 ## Convert this -> self, null -> nil
 ## Function & Parameter Convert
 [Origin]
@@ -9,7 +11,7 @@ public int func1() {
   blahblahblah
 }
 ```
-[Convert]
+[Converted]
 ```swift
 func func1() -> Int {
   blahblahblah
@@ -24,7 +26,7 @@ class Test {
   }
 }
 ```
-[Convert]
+[Converted]
 ```swift
 class Test {
   init(foo: Int) {
@@ -40,7 +42,7 @@ class Test {
   private String bar;
 }
 ```
-[Convert]
+[Converted]
 ```swift
 class Test {
   var foo: Int = 0;
