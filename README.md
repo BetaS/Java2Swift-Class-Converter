@@ -1,7 +1,7 @@
 # Java -> Swift2 Object Converter
 This is a simple converter for Java Class to Swift2.x Class using regex
 
-Online converter available : http://betas.github.io/java2swift_object_converter/
+Online converter available : http://betas.github.io/Java2Swift-Class-Converter/
 
 ## Convert this -> self, null -> nil
 ## Function & Parameter Convert
