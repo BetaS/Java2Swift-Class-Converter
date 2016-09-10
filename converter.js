@@ -69,7 +69,7 @@ function convert() {
 	});
 		
 	// 생성자 변경
-	pattern = regex("(public\\s+|private\\s+|protected\\s+|)"+class_name+"\\((.*?)\\)\\s*{");
+	pattern = regex("(public\\s+|private\\s+|protected\\s+|)"+class_name+"\\((.*?)\\)");
 	source = source.replace(pattern,  function(all, t, params){
 		return "init("+type_params(params)+") {";
 	});
