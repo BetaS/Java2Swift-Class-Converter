@@ -32,46 +32,52 @@ function convert() {
 	
 	var source = from.value;
 	var pattern;
-	
-	// 클래스 이름 찾기
-	var class_name = "";
-	pattern = regex("class\\s+(.+?)\\s+\\{");
-	match = pattern.exec(source);
-	class_name = match[1];
-	
+
+	var ACCESS_MOD = "(public\\s+|private\\s+|protected\\s+|)";
+
 	// package 정의 삭제
 	pattern = regex("package\\s+(.*);\\s*");
 	source = source.replace(pattern, "");
-	
+
 	// import 삭제
 	pattern = regex("import\\s+(.*);\\s*");
 	source = source.replace(pattern, "");
-	
+
 	// this -> self 변경
 	pattern = regex("this\\.");
 	source = source.replace(pattern, "self.");
-	
+
 	// null -> nil 변경
 	pattern = regex("null");
 	source = source.replace(pattern, "nil");
-	
+
+	// 클래스 이름 찾기
+	var class_name = "";
+	pattern = regex(ACCESS_MOD+"class\\s+(.+?)\\s+(.+?)\\{");
+	match = pattern.exec(source);
+	class_name = match[2];
+	source = source.replace(pattern,  function(all, p, name, param) {
+		return 'class '+name+": "+param+" {";
+	});
+
+	// 생성자 변경
+	pattern = regex(ACCESS_MOD+class_name+"\\((.*?)\\)");
+	source = source.replace(pattern,  function(all, t, params){
+		return "init("+type_params(params)+")";
+	});
+
 	// 변수 선언 변경
 		// 대입식 있는것
-	pattern = regex("private\\s+(.+?)\\s+(.+?)\\s*\\=\\s*(.+?);");
-	source = source.replace(pattern,  function(all, type, name, expr){
+	pattern = regex(ACCESS_MOD+"(.+?)\\s+(.+?)\\s*\\=\\s*(.+?);");
+	source = source.replace(pattern,  function(all, p, type, name, expr) {
 		return 'var '+name+": "+type_format(type)+" = "+expr+";";
 	});
-	
+
+	/*
 		// 대입식 없는것
-	pattern = regex("private\\s+(.+?)\\s+(.+?)\\s*;");
+	pattern = regex("(public\\s+|private\\s+|protected\\s+|)(.+?)\\s+(.+?)\\s*;");
 	source = source.replace(pattern,  function(all, type, name){
 		return "var "+name+": "+type_format(type)+" = "+type_expr(type)+";";
-	});
-		
-	// 생성자 변경
-	pattern = regex("(public\\s+|private\\s+|protected\\s+|)"+class_name+"\\((.*?)\\)");
-	source = source.replace(pattern,  function(all, t, params){
-		return "init("+type_params(params)+") {";
 	});
 	
 	// 함수 파라미터 변경
@@ -83,7 +89,7 @@ function convert() {
 		}
 		return "func "+name+"("+type_params(params)+")"+rtn_type+" {";
 	});
-	
+	*/
 	
 	to.value = source.trim();
 }

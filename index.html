@@ -24,31 +24,44 @@
       <script language="javascript" src="./converter.js"></script>
 		<center><button onclick="convert();">Convert</button></center><br/>
       <div style="width: 50%; float:left">
-		<textarea id="from" rows="30" style="width: 100%"  wrap='off'>
+<textarea id="from" rows="30" style="width: 100%"  wrap='off'>
 package com.example;
 
 import test;
 
-class Tester {
-	private int abc = 123;
-	private String bcd;
-	
-	public Tester(int abc, String bcd) {
-		this.abc = abc;
-		this.bcd = null;
-	}
-	Tester() {
-	}
-	
-	public int getABC() {
-		return abc;
-	}
-	public String getBCD(int a) {
-		return bcd;
-	}
-	private void rtn() {
-	}
-}</textarea>
+public class Tester extends ABC implements BCD, EFG {
+    public static int test = 1;
+    public static final float SAMPLE = 1.1;
+    protected boolean check = false;
+    int test;
+    public String check;
+    private int abc = 123;
+    private String bcd;
+
+    public Tester(int abc, String bcd) {
+        this.abc = abc;
+        this.bcd = null;
+    }
+    Tester() {
+    }
+
+    private Tester() throws test {
+    }
+
+    public static int getStatic() throws TEST {
+        return 1;
+    }
+
+    public int getABC() {
+        return abc;
+    }
+    public String getBCD(int a) {
+        return bcd;
+    }
+    private void rtn() {
+    }
+}
+</textarea>
 </div>
 <div style="width: 50%; float:right">
 		<textarea id="to" rows="30" style="width: 100%"  wrap='off'></textarea>
@@ -73,7 +86,6 @@ class Tester {
 
   ga('create', 'UA-83785966-1', 'auto');
   ga('send', 'pageview');
-
 </script>
   </body>
 </html>
